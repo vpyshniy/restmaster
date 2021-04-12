@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx:/etc/nginx/conf.d
+      - ./src:/var/www/restmaster
+      - ./logs:/var/log/nginx
+    links:
+      - php
+
+  php:
+    build: ./deploy/php
+    volumes:
+      - ./src:/var/www/restmaster
