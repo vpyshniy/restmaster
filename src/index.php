@@ -6,7 +6,8 @@ $app = new App();
 $app->addEndpoint('Handler','endpoints/hello', '/api/v1/hello');
 
 $app->beforeRequest(function($request) {
-    print_r($_SERVER);
+/* MIDDLEWARE */
+    
 });
 
 $app->run();
